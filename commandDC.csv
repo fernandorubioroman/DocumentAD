@@ -1,0 +1,23 @@
+propertyname#command#Script#Description
+Fixes#get-hotfix | Select-Object PSComputerName,InstalledOn,HotFixID,InstallDate,Description#False#Get the list of installed hotfixes #
+Services#get-service#False#Get the services information
+ScheduledTasks#get-scheduledtask#False#Get the scheduled tasks
+RegAssociationsMachine#get-childitem -path "HKLM:\Software\Classes"#False#gets the machine file associations 
+Drivers#get-windowsdriver -online#False#Get the list of third party drivers running on the machine
+Audit#auditpol.ps1#true#get the audit policy of the machine using auditpol
+OSInfo#get-wmiobject Win32_OperatingSystem#False#Get the OS information and version#
+ComputerInfo#get-wmiobject Win32_ComputerSystem#False#Get the machine name, manufacturer, model, etc#
+DiskInfo#Get-wmiobject Win32_logicaldisk |where-object{$_.drivetype -eq 3}#False#Get the disk information
+##############Network Config##############
+IPInfo#get-wmiobject Win32_NetworkAdapterConfiguration -Filter IPEnabled=TRUE #False#Get the ip network card information#
+Shares#get-wmiobject Win32_share#False#Get the list of shares
+netstat#get-NetTCPConnection#False#Get the opened network connections
+routeprint#get-netroute#false#gets the machine routes
+HostParsed#hostparsed.ps1#true#Gets the parsed contents of the host file 
+##############Certificates##############
+RegCertificatesmachine#get-childitem -path "HKLM:\Software\Policies\Microsoft\SystemCertificates" -recurse#False#get the machine info about certificates from registry
+CertificatesAuthroot#get-childitem -path cert:\LocalMachine\Authroot#False#get the certificates in the authroot container
+certificatesroot#get-childitem -path cert:\LocalMachine\root#False#get the certificates in the root container
+##############Miscelaneous##############
+EnvironmentVariables#Get-ChildItem Env:#False#Get the environment Variables
+ADReplicationConnection#Get-ADReplicationConnection -Server $env:COMPUTERNAME#false#get the replication connections

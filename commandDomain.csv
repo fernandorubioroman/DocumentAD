@@ -1,0 +1,16 @@
+propertyname#command#Script#Description
+AllADObjects#get-adobject -filter * -properties *#false#Get all data about all AD objects, do not launch this on a huge enterprise 
+Users#get-aduser -filter * -properties *#false#Get alldata about all users
+Machines#get-adcomputer -filter * -properties *#false#Get all data about all machine objects
+Groups#get-adgroup -filter * -properties *#false#Get all data about all group objects
+GPOs#get-gpo -all#false#get the list of all GPO objects
+GPOReport#Get-GPOReport -All -ReportType xml#false#get an xml report representing all existing GPOs
+DCInfo#get-addomaincontroller -filter *#false#retrieves the list of dcs in the domain in the domain
+FineGrainedPasswordPolicy#Get-ADFineGrainedPasswordPolicy -Filter *#false#gets the fine grained password policies
+#ADOptionalFeature#Get-ADOptionalFeature -filter *#false#get the enabled optional features such as recycle bin
+OUs#Get-ADOrganizationalUnit -filter * -Properties *#false#get the list of all OUs
+RootDSE#Get-ADRootDSE#False#Get the root DSE info
+ServiceAccounts#Get-ADServiceAccount -Filter * -Properties *#False#Get all AD service accounts info
+Trusts#Get-ADTrust -Filter * -Properties *#False#get all trust information
+ADReplicationMetadata#Get-ADReplicationPartnerMetadata -Target $env:computername#False#Get Ad replication metadata
+
