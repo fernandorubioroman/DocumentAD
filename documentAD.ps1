@@ -15,7 +15,7 @@ $bestdcs| select -ExpandProperty hostname| Start-ParallelExecution -InputCommand
 $dcs| select -ExpandProperty hostname | Start-ParallelExecution -InputCommandFile .\commandDC.csv -OutputFile ".\output_DCs_$($date).xml" -TimeoutInSeconds 900 -ScriptFolder .\scripts  -Verbose
 #if we want to load the exported data for analysis run
 Get-ChildItem -Path .\ |where{$_.Extension -eq ".xml"} | Compress-Archive -DestinationPath .\DocumentedAD$date.zip 
-
+Get-ChildItem -Path .\ |where{$_.Extension -eq ".xml"}  | remove-item
 
 
 
