@@ -13,4 +13,4 @@ RootDSE#Get-ADRootDSE#False#Get the root DSE info
 ServiceAccounts#Get-ADServiceAccount -Filter * -Properties *#False#Get all AD service accounts info
 Trusts#Get-ADTrust -Filter * -Properties *#False#get all trust information
 ADReplicationMetadata#Get-ADReplicationPartnerMetadata -Target $env:computername#False#Get Ad replication metadata
-
+DNSInfo#documentdns.ps1#true#Get dns specific info
